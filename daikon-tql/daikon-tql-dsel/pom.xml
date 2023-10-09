@@ -9,24 +9,6 @@
     <name>Daikon library for conversions of TQL to DSEL and DSEL to TQL</name>
     <modelVersion>4.0.0</modelVersion>
 
-    <properties>
-        <releases>https://artifacts-zl.talend.com/nexus/content/repositories/releases/</releases>
-    </properties>
-
-    <repositories>
-        <repository>
-            <id>releases</id>
-            <name>releases</name>
-            <url>${releases}</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
-
     <dependencies>
         <dependency>
             <groupId>org.talend.maplang</groupId>

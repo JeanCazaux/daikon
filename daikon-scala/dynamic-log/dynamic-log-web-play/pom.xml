@@ -12,17 +12,6 @@
     <packaging>jar</packaging>
 
     <repositories>
-        <repository>
-            <id>central nexus</id>
-            <name>central-nexus</name>
-            <url>https://artifacts-zl.talend.com/nexus/content/repositories/central/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
          <repository>
             <id>atlassian</id>
             <name>atlassian-nexus</name>
