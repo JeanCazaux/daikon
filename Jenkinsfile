@@ -124,7 +124,7 @@ spec:
       steps {
         container('maven') {
           configFileProvider([configFile(fileId: 'maven-settings-nexus-zl', variable: 'MAVEN_SETTINGS')]) {
-            sh 'mvn formatter:format -B -s $MAVEN_SETTINGS'
+            sh 'mvn formatter:format -U -B -s $MAVEN_SETTINGS'
             script {
               def changedLines = sh (script: 'git status --porcelain | wc -l', returnStdout: true)
               echo "Git status reports ${changedLines} changed lines after maven format run."
