@@ -123,7 +123,7 @@ spec:
       when { changeRequest target: 'master' }
       steps {
         container('maven') {
-          configFileProvider([configFile(fileId: 'maven-settings-nexus-zl', variable: 'MAVEN_SETTINGS')]) {
+          configFileProvider([configFile(fileId: 'maven-settings', variable: 'MAVEN_SETTINGS')]) {
             sh 'mvn formatter:format -U -B -s $MAVEN_SETTINGS'
             script {
               def changedLines = sh (script: 'git status --porcelain | wc -l', returnStdout: true)
@@ -144,7 +144,7 @@ spec:
       }
       steps {
         container('maven') {
-          configFileProvider([configFile(fileId: 'maven-settings-nexus-zl', variable: 'MAVEN_SETTINGS')]) {
+          configFileProvider([configFile(fileId: 'maven-settings', variable: 'MAVEN_SETTINGS')]) {
             sh 'mvn install -B -s $MAVEN_SETTINGS'
           }
         }
@@ -157,7 +157,7 @@ spec:
       }
       steps {
         container('maven') {
-          configFileProvider([configFile(fileId: 'maven-settings-nexus-zl', variable: 'MAVEN_SETTINGS')]) {
+          configFileProvider([configFile(fileId: 'maven-settings', variable: 'MAVEN_SETTINGS')]) {
             sh 'mvn deploy -B -s $MAVEN_SETTINGS'
           }
         }
@@ -173,7 +173,7 @@ spec:
       }
       steps {
         container('maven') {
-          configFileProvider([configFile(fileId: 'maven-settings-nexus-zl', variable: 'MAVEN_SETTINGS')]) {
+          configFileProvider([configFile(fileId: 'maven-settings', variable: 'MAVEN_SETTINGS')]) {
             sh """
               mvn deploy -B -s $MAVEN_SETTINGS -Dtalend_snapshots=https://nexus-smart-branch.datapwn.com/nexus/content/repositories/dev_branch_snapshots/branch_${escaped_branch} -Dtalend_snapshots_deployment=https://artifacts-oss.talend.com/nexus/content/repositories/dev_branch_snapshots/branch_${escaped_branch}
             """
@@ -189,7 +189,7 @@ spec:
         steps {
             withCredentials([gitCredentials, jiraCredentials]) {
               container('maven') {
-                configFileProvider([configFile(fileId: 'maven-settings-nexus-zl', variable: 'MAVEN_SETTINGS')]) {
+                configFileProvider([configFile(fileId: 'maven-settings', variable: 'MAVEN_SETTINGS')]) {
                   sh """
                     git config --global push.default current
                     git checkout ${env.BRANCH_NAME}
