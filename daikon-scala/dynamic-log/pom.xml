@@ -14,7 +14,6 @@
 
     <modules>
         <module>dynamic-log-core</module>
-        <module>dynamic-log-web-play</module>
     </modules>
 
 </project>
